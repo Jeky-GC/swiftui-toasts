@@ -18,11 +18,17 @@ let package = Package(
       name: "Toasts",
       dependencies: [
         .product(name: "WindowOverlay", package: "swiftui-window-overlay")
+      ],
+      resources: [
+        .process("Resources") // Ensure the Resources folder is included
       ]
     ),
     .testTarget(
       name: "ToastManagerTests",
-      dependencies: ["Toasts"]
+      dependencies: ["Toasts"],
+      resources: [
+        .process("Resources") // Ensure the Resources folder is included
+      ]
     ),
   ]
 )

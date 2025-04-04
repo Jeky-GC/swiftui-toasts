@@ -13,7 +13,9 @@ internal final class ToastManager: ObservableObject {
     !models.isEmpty || isAppeared
   }
 
-  nonisolated init() {}
+  nonisolated init() {
+      FontLoader.registerFonts()
+  }
 
   internal func onAppear() {
     isAppeared = true

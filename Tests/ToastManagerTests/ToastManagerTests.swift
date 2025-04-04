@@ -99,4 +99,16 @@ final class ToastManagerTests: XCTestCase {
     XCTAssertEqual(manager.models.count, 1)
     XCTAssertEqual(manager.models.first?.message, "Error")
   }
+    
+    func testFontRegistration() {
+        // Call font registration
+        FontLoader.registerFonts()
+        
+        // Test if a custom font can be loaded
+        let fontName = "Urbanist-Italic" // Use the actual PostScript name of your font
+        let testFont = UIFont(name: fontName, size: 16)
+        
+        XCTAssertNotNil(testFont, "❌ Font \(fontName) was not registered correctly")
+        print("✅ Successfully registered and loaded font: \(fontName)")
+    }
 }

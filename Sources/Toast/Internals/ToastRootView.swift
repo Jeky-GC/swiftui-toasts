@@ -4,10 +4,13 @@ internal struct ToastRootView: View {
 
   @ObservedObject var manager: ToastManager
 
-  var body: some View {
-    main
-      .onAppear(perform: manager.onAppear)
-  }
+    var body: some View {
+        main
+            .onAppear {
+                FontLoader.registerFonts() // Register fonts when the first toast appears
+                manager.onAppear()
+            }
+    }
 
   @ViewBuilder
   private var main: some View {
